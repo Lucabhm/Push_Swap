@@ -1,6 +1,6 @@
 NAME = push_swap
 NAMEB = checker
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 SRCS = src/push_swap.c \
 		src/checkerparsing.c \
 		src/parsing.c \

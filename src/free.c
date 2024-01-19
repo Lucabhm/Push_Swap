@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:37:42 by lbohm             #+#    #+#             */
-/*   Updated: 2024/01/18 11:55:33 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/01/19 23:03:58 by lucabohn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,10 @@ void	freerest(char **arr, t_list **a, t_list **b)
 void	freelst(t_list **lst)
 {
 	t_list	*tmp;
-	int		*nbr;
 
 	while (*lst)
 	{
 		tmp = (*lst)->next;
-		nbr = (*lst)->content;
 		free((*lst)->content);
 		free(*lst);
 		*lst = tmp;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:37:14 by lbohm             #+#    #+#             */
-/*   Updated: 2024/01/17 17:54:57 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/01/19 23:33:53 by lucabohn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	checksizearr(int argc, char **argv, int *size, t_chunk data);
 int		checkarr(char **arr);
 int		check_max_min(char *str);
 int		check_dup(char **arr);
+int		count_lst(t_list *first, t_list *second);
 
 // helper
 

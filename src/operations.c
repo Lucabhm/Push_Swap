@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 11:06:19 by lucabohn          #+#    #+#             */
-/*   Updated: 2024/01/16 10:33:07 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/01/19 22:59:45 by lucabohn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,17 @@ void	rotate_a(t_list **a, int check)
 	t_list	*second;
 	t_list	*last;
 
-	first = *a;
-	if (first->next)
+	if (*a)
 	{
-		second = first->next;
-		last = ft_lstlast(first);
-		last->next = first;
-		first->next = NULL;
-		*a = second;
+		first = *a;
+		if (first->next)
+		{
+			second = first->next;
+			last = ft_lstlast(first);
+			last->next = first;
+			first->next = NULL;
+			*a = second;
+		}
 	}
 	if (check == 1)
 		ft_printf("ra\n");
@@ -37,14 +40,17 @@ void	rotate_b(t_list **b, int check)
 	t_list	*second;
 	t_list	*last;
 
-	first = *b;
-	if (first->next)
+	if (*b)
 	{
-		second = first->next;
-		last = ft_lstlast(first);
-		last->next = first;
-		first->next = NULL;
-		*b = second;
+		first = *b;
+		if (first->next)
+		{
+			second = first->next;
+			last = ft_lstlast(first);
+			last->next = first;
+			first->next = NULL;
+			*b = second;
+		}
 	}
 	if (check == 1)
 		ft_printf("rb\n");
@@ -55,13 +61,16 @@ void	swap_a(t_list **a, int check)
 	t_list	*first;
 	t_list	*second;
 
-	first = *a;
-	if (first->next)
+	if (*a)
 	{
-		second = first->next;
-		first->next = second->next;
-		second->next = first;
-		*a = second;
+		first = *a;
+		if (first->next)
+		{
+			second = first->next;
+			first->next = second->next;
+			second->next = first;
+			*a = second;
+		}
 	}
 	if (check == 1)
 		ft_printf("sa\n");
@@ -72,13 +81,16 @@ void	swap_b(t_list **b, int check)
 	t_list	*first;
 	t_list	*second;
 
-	first = *b;
-	if (first->next)
+	if (*b)
 	{
-		second = first->next;
-		first->next = second->next;
-		second->next = first;
-		*b = second;
+		first = *b;
+		if (first->next)
+		{
+			second = first->next;
+			first->next = second->next;
+			second->next = first;
+			*b = second;
+		}
 	}
 	if (check == 1)
 		ft_printf("sb\n");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:27:10 by lbohm             #+#    #+#             */
-/*   Updated: 2024/01/18 13:55:13 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/01/19 23:25:46 by lucabohn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	data.arr = NULL;
 	str = "";
 	data.arr = parsing(argc, argv, data);
-	if (countstr(data.arr) > 1)
+	if (countstr(data.arr) > 0)
 	{
 		data.a = (t_list **)malloc (countstr(data.arr) * sizeof(t_list));
 		if (!(data.a))
@@ -42,10 +42,13 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-void	check_operation(t_list **op, t_list **a, t_list **b)
+char	**check_operation(void)
 {
-	char	*opall[12];
+	char	**opall;
 
+	opall = (char **)malloc (12 * sizeof(char *));
+	if (!(opall))
+		return (NULL);
 	opall[0] = "sa\n";
 	opall[1] = "sb\n";
 	opall[2] = "pa\n";
@@ -58,7 +61,7 @@ void	check_operation(t_list **op, t_list **a, t_list **b)
 	opall[9] = "rrr\n";
 	opall[10] = "ss\n";
 	opall[11] = NULL;
-	check_operation_2(op, a, b, opall);
+	return (opall);
 }
 
 void	check_operation_2(t_list **op, t_list **a, t_list **b, char **opall)
@@ -87,30 +90,28 @@ void	check_operation_2(t_list **op, t_list **a, t_list **b, char **opall)
 
 int	operation_b(int i, t_list **a, t_list **b)
 {
-	if (i == 0 && *a)
+	if (i == 0)
 		swap_a(a, 2);
-	else if (i == 1 && *b)
+	else if (i == 1)
 		swap_b(b, 2);
-	else if (i == 2 && *b)
+	else if (i == 2)
 		push_a(a, b, 2);
-	else if (i == 3 && *a)
+	else if (i == 3)
 		push_b(a, b, 2);
-	else if (i == 4 && *a)
+	else if (i == 4)
 		rotate_a(a, 2);
-	else if (i == 5 && *b)
+	else if (i == 5)
 		rotate_b(b, 2);
-	else if (i == 6 && *a)
+	else if (i == 6)
 		reverse_rotate_a(a, 2);
-	else if (i == 7 && *b)
+	else if (i == 7)
 		reverse_rotate_b(b, 2);
-	else if (i == 8 && *a && *b)
+	else if (i == 8)
 		rotate_a_and_b(a, b, 2);
-	else if (i == 9 && *a && *b)
+	else if (i == 9)
 		reverse_rotate_a_and_b(a, b, 2);
-	else if (i == 10 && *a && *b)
+	else if (i == 10)
 		swap_a_and_b(a, b, 2);
-	else
-		return (1);
 	return (0);
 }
 
@@ -118,17 +119,21 @@ void	read_input(char *str, t_chunk data)
 {
 	t_list	*operations;
 	t_list	*newnode;
+	char	**opall;
 
 	operations = NULL;
+	opall = check_operation();
 	while (str)
 	{
 		str = get_next_line(0);
 		if (!(str))
 			break ;
+		check_input(str, data, opall);
 		newnode = ft_lstnew(str);
 		ft_lstadd_back(&operations, newnode);
 	}
 	free(str);
-	check_operation(&operations, data.a, data.b);
+	check_operation_2(&operations, data.a, data.b, opall);
 	freelst_b(&operations);
+	free(opall);
 }

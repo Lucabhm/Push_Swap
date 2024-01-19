@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checkerparsing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:58:46 by lbohm             #+#    #+#             */
-/*   Updated: 2024/01/18 12:56:37 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/01/19 23:34:19 by lucabohn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include <stdio.h>
 
 int	check_max_min(char *str)
 {
@@ -97,4 +96,27 @@ void	checksizearr(int argc, char **argv, int *size, t_chunk data)
 			error(data.arr, data.a, data.b);
 		i++;
 	}
+}
+
+int	count_lst(t_list *first, t_list *second)
+{
+	int		*firstnbr;
+	int		*secondnbr;
+	int		i;
+
+	i = 0;
+	while (second)
+	{
+		secondnbr = second->content;
+		firstnbr = first->content;
+		if (*firstnbr < *secondnbr)
+		{
+			first = second;
+			second = second->next;
+			i++;
+		}
+		else
+			return (i);
+	}
+	return (i);
 }
