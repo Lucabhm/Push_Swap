@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkerparsing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:58:46 by lbohm             #+#    #+#             */
-/*   Updated: 2024/01/19 23:34:19 by lucabohn         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:27:18 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,9 @@ void	checksizearr(int argc, char **argv, int *size, t_chunk data)
 
 int	count_lst(t_list *first, t_list *second)
 {
+	int		i;
 	int		*firstnbr;
 	int		*secondnbr;
-	int		i;
 
 	i = 0;
 	while (second)

@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:34:37 by lbohm             #+#    #+#             */
-/*   Updated: 2024/01/19 23:19:09 by lucabohn         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:16:21 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
 
+# include <stdlib.h>
+# include <unistd.h>
 # include "../include/push_swap.h"
 # include "../lib/libft/libft.h"
 # include "../lib/printf/ft_printf.h"
@@ -29,7 +31,7 @@ void	read_input(char *str, t_chunk data);
 // free_bonus
 
 void	freelst_b(t_list **lst);
-void	check_input(char *str, t_chunk data, char **opall);
-void	error_bonus(char *str, t_chunk data, char **opall);
+void	error_bonus(t_list **a, t_list **b, char **arr, char **opall);
+void	check_input(char *str, char **opall, t_chunk data);
 
 #endif

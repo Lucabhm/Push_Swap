@@ -1,6 +1,6 @@
 NAME = push_swap
 NAMEB = checker
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g
 SRCS = src/push_swap.c \
 		src/checkerparsing.c \
 		src/parsing.c \
@@ -34,7 +34,7 @@ INPUSH = -I include/push_swap.h
 INCHECK = -I include_bonus/checker_bonus.h
 
 RED = '\033[1;31m'
-BLUE = '\033[0;94m'
+BLUE ="\033[1;34m"
 DEF_COLOR = '\033[0;39m'
 
 $(NAME):		$(OBJS)

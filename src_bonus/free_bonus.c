@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:23:39 by lbohm             #+#    #+#             */
-/*   Updated: 2024/01/19 23:18:13 by lucabohn         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:51:21 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,15 @@ void	freelst_b(t_list **lst)
 	}
 }
 
-void	error_bonus(char *str, t_chunk data, char **opall)
+void	error_bonus(t_list **a, t_list **b, char **arr, char **opall)
 {
 	ft_putstr_fd("Error\n", 2);
-	freerest(data.arr, data.a, data.b);
+	freerest(arr, a, b);
 	free(opall);
-	free(str);
 	exit(0);
 }
 
-void	check_input(char *str, t_chunk data, char **opall)
+void	check_input(char *str, char **opall, t_chunk data)
 {
 	int	i;
 
@@ -46,5 +45,8 @@ void	check_input(char *str, t_chunk data, char **opall)
 		i++;
 	}
 	if (!(opall[i]))
-		error_bonus(str, data, opall);
+	{
+		free(str);
+		error_bonus(data.a, data.b, data.arr, opall);
+	}
 }

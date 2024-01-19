@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:27:10 by lbohm             #+#    #+#             */
-/*   Updated: 2024/01/19 23:25:46 by lucabohn         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:11:04 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,21 @@ int	main(int argc, char **argv)
 	data.arr = NULL;
 	str = "";
 	data.arr = parsing(argc, argv, data);
-	if (countstr(data.arr) > 0)
-	{
-		data.a = (t_list **)malloc (countstr(data.arr) * sizeof(t_list));
-		if (!(data.a))
-			error(data.arr, data.a, data.b);
-		data.b = (t_list **)malloc (countstr(data.arr) * sizeof(t_list));
-		if (!(data.b))
-			error(data.arr, data.a, data.b);
-		*data.b = NULL;
-		*data.a = fill_list(data.arr);
-		read_input(str, data);
-		if (sortedchecka(data.a) == countstr(data.arr))
-			ft_printf("OK\n");
-		else
-			ft_printf("KO\n");
-	}
+	if (countstr(data.arr) < 1)
+		return (0);
+	data.a = (t_list **)malloc (countstr(data.arr) * sizeof(t_list));
+	if (!(data.a))
+		error(data.arr, data.a, data.b);
+	data.b = (t_list **)malloc (countstr(data.arr) * sizeof(t_list));
+	if (!(data.b))
+		error(data.arr, data.a, data.b);
+	*data.b = NULL;
+	*data.a = fill_list(data.arr);
+	read_input(str, data);
+	if (sortedchecka(data.a) == countstr(data.arr))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	freerest(data.arr, data.a, data.b);
 	return (0);
 }
@@ -79,8 +78,8 @@ void	check_operation_2(t_list **op, t_list **a, t_list **b, char **opall)
 		{
 			if (!(ft_strncmp(str, opall[i], sizeof(str))))
 			{
-				if (!(operation_b(i, a, b)))
-					break ;
+				operation_b(i, a, b);
+				break ;
 			}
 			i++;
 		}
@@ -128,7 +127,7 @@ void	read_input(char *str, t_chunk data)
 		str = get_next_line(0);
 		if (!(str))
 			break ;
-		check_input(str, data, opall);
+		check_input(str, opall, data);
 		newnode = ft_lstnew(str);
 		ft_lstadd_back(&operations, newnode);
 	}

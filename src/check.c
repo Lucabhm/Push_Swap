@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:42:53 by lbohm             #+#    #+#             */
-/*   Updated: 2024/01/19 23:33:26 by lucabohn         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:27:11 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	sortedchecka(t_list **lst)
 	if (*lst)
 	{
 		first = *lst;
-		if (first->next)
+		if ((*lst)->next)
 		{
 			second = first->next;
 			i = count_lst(first, second);
