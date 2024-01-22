@@ -34,7 +34,7 @@ INPUSH = -I include/push_swap.h
 INCHECK = -I include_bonus/checker_bonus.h
 
 RED = '\033[1;31m'
-BLUE = '\033[1;34m'
+BLUE ="\033[1;34m"
 DEF_COLOR = '\033[0;39m'
 
 $(NAME):		$(OBJS)
