@@ -50,5 +50,6 @@ Your goal? Write a program in C called push_swap which calculates and displays o
 + In every other case, it must display "KO" followed by a ’\n’ on the standard output.
 + In case of error, you must display "Error" followed by a ’\n’ on the standard er- ror. Errors include for example: some arguments are not integers, some arguments are bigger than an integer, there are duplicates, an instruction doesn’t exist and/or is incorrectly formatted.
 ## Images
+![F86D606D-9D0A-4C56-9A38-FF29A66236F4](https://github.com/Lucabhm/Push_Swap/assets/144374574/be89a908-7d40-404c-a561-e7a7f9d4f055)
 ## My Result
 ![FF961C62-0D62-4313-B881-7A313DA2B6FD](https://github.com/Lucabhm/Push_Swap/assets/144374574/9f376faa-7e08-4c46-a0fc-a54ad2e0bd1b)
